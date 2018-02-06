@@ -1,4 +1,4 @@
-# phonebook backend
+# phonebook frontend
 Front end for the phonebook application done during the Helsinki University course 'Full Stack Web Development'
 
 Back end: https://github.com/eerojala/phonebook_backend
