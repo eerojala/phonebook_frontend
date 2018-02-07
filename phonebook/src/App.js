@@ -38,7 +38,9 @@ class App extends React.Component {
           this.setState({
             persons: persons.concat(changedPerson),
             newName: '',
-            newNumber: ''
+            newNumber: '',
+            notification: `Henkilön ${changedPerson.name} numero päivitetty`,
+            notificationClass: 'success'
           })
         })
         .catch(error => {
@@ -47,9 +49,9 @@ class App extends React.Component {
             notificationClass: 'error',
             persons: this.state.persons.filter(p => p.id !== person.id)
           })
-
-          this.nullifyNotification()
         })
+      
+        this.nullifyNotification()
     }
   }
 
@@ -100,8 +102,12 @@ class App extends React.Component {
           .then(response => {
           const persons = this.state.persons.filter(person => person.id !== id)
             this.setState({
-              persons
+              persons,
+              notification: `Poistettiin ${person.name}`,
+              notificationClass: 'success'
             })
+
+            this.nullifyNotification()
           })
       }
     }
